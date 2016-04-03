@@ -1,0 +1,276 @@
+
+  
+  
+  
+  
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Employee
+            <small>Add New</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="../index"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Add New Employee</li>
+          </ol>
+        </section>
+<!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <!-- left column -->
+         
+		  <div class="col-md-12">
+			<div class="callout callout-success">
+					
+				<p>Successfully SUbmitted</p>
+                  </div><!-- /.box-footer -->
+			
+			</div> 
+            <div class="col-md-6">
+              <!-- Horizontal Form -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Employee Personal detail</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                <form role="form" name='frmLogin'  action="add_emp" method="post" enctype="multipart/form-data">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Name</label>
+                     				 
+                  <div class="row">
+                    <div class="col-xs-4">
+                      <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name*" onKeyPress="return letter(event)" maxlength="35" ng-model="Staff.f_name"/>
+                    </div>
+                    <div class="col-xs-4">
+                      <input type="text" class="form-control" placeholder="Middle Name" id="m_name" name="m_name"  onKeyPress="return letter(event)" maxlength="35" ng-model="Staff.m_name"/>
+                    </div>
+                    <div class="col-xs-4">
+                      <input type="text" class="form-control" placeholder="Last Name*" id="l_name" name="l_name" onKeyPress="return letter(event)" maxlength="35" ng-model="Staff.l_name" />
+                    </div>
+                 
+                </div><!-- /.box-body -->
+                    </div>
+					
+					<div class="form-group">
+                      <label for="exampleInputEmail1">Email ID</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" id="email" name="email" ng-model="Staff.email" />
+                    </div>
+					<div class="form-group">
+                    <label>Date of Birth:</label>
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <input type="date" class="form-control" name="dob" data-inputmask="'alias': 'dd/mm/yyyy'" value="1990-01-01" ng-model="Staff.dob"  data-mask>
+                    </div><!-- /.input group -->
+                  </div>
+				  
+				  <div class="form-group">
+					<label for="exampleInputEmail1">Select Gender</label>                   
+				   
+				   <div class="form-control">
+                    <div class="col-xs-3">
+				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="radio" name="gender" value="male" class="minimal-red" ng-model="Staff.gender" checked>
+                    Male
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div>
+					<div class="col-xs-4">
+                    
+                      <input type="radio" name="gender" value="female" class="minimal-red" ng-model="Staff.gender">
+                    Female
+                   	</div>
+					</div>
+                  </div>
+				  
+				  <div class="form-group">
+                    <label>Nationality</label>
+                    <select class="form-control select2"  style="width: 100%;" name="nationality" ng-model="Staff.nationality">
+                      <option Value="india" selected="selected">India</option>
+                      <option Value="pakistan">Pakistan</option>
+                      <option value="california">California</option>
+                      <option value="delaware">Delaware</option>
+                      <option value="tennessee">Tennessee</option>
+                      <option value="texas">Texas</option>
+                      <option value="washington"> Washington</option>
+                    </select>
+                  </div>
+				  <div class="form-group">
+                    <label>Marital status</label>
+                    <select class="form-control select2" style="width: 100%;" name="m_status" ng-model="Staff.m_status">
+					 <option  selected="selected" value="0">Please select one</option>
+                      <option  value="unmarried">Unmarried </option>
+                      <option value="married">Married</option>
+                      
+                    </select>
+                  </div>
+				  <div class="form-group">
+                      <label for="qualification">Highest Qualification </label>
+                      <select class="form-control select2" style="width: 100%;" name="h_qualification" ng-model="Staff.h_qualification">
+					 <option  selected="selected" value="0">Please select Highest Qualification</option>
+                      <option  value="Post Graduate">Post Graduate </option>
+                      <option value="Graduate">Graduate</option>
+					   <option  value="Intermediate">Intermediate </option>
+                      <option value="High School">High School</option>
+					  <option value="8th">8th</option>
+					  
+                      
+                    </select>
+                    </div>
+					<div class="form-group">
+                      <label for="">Registration Amount </label>
+                      <input type="text" class="form-control" name="reg_amount" id="reg_amount" placeholder="Enter Amount" ng-model="Staff.reg_amount">
+                    </div>
+
+					<div class="form-group">
+                      <label for="">Father Name</label>
+                      <input type="text" class="form-control" name="father_name" id="father_name" placeholder="Father Name*" ng-model="Staff.father_name">
+                    </div>
+
+					<div class="form-group">
+                      <label for="">Address : 1</label>
+                      <input type="text" class="form-control" name="add1" id="add1" placeholder="Enter Address 1" ng-model="Staff.add1">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Address : 2</label>
+                      <input type="text" class="form-control" name="add2" id="add2" placeholder="Enter Address 2" ng-model="Staff.add2">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Postal Code</label>
+                      <input type="text" class="form-control" name="pincode" id="pincode" placeholder="Enter Postal code" ng-model="Staff.pincode">
+                    </div>
+					<div class="form-group">
+                      <label for="exampleInputEmail1">Contact No.</label>
+                      <input type="text" class="form-control" name="contact" id="contact" placeholder="Enter Contact No." maxlength="10" ng-model="Staff.contact"/>
+                    </div>
+					
+				 </div><!-- /.box-body -->
+ 
+              </div><!-- /.box -->
+
+            </div><!--/.col (right) -->
+			
+			 <div class="col-md-6">
+              <!-- Horizontal Form -->
+             
+			   <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Official Detail</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+               
+                  <div class="box-body">
+				  <div class="form-group">
+                      <label for="exampleInputEmail1">Nominee Name</label>
+                      <input type="text" class="form-control" name="nominee_name" id="nominee_name" placeholder="Enter Nominee Name" ng-model="Staff.nominee_name">
+                    </div>
+					<div class="form-group">
+                      <label for="exampleInputEmail1">Nominee Age</label>
+                      <input type="text" class="form-control" name="nominee_age" id="nominee_age" placeholder="Enter Age" ng-model="Staff.nominee_age">
+                    </div>
+					<div class="form-group">
+                      <label for="exampleInputEmail1">Nominee Relation</label>
+                      <input type="text" class="form-control" name="nominee_rel" id="nominee_rel" placeholder="Relation to Nominee" ng-model="Staff.nominee_rel">
+                    </div>
+					<div class="form-group">
+                      <label for="exampleInputEmail1">Bank A/C No.</label>
+                      <input type="text" class="form-control" name="bank_acc" id="bank_acc" placeholder="Enter A/C No." ng-model="Staff.bank_acc">
+                    </div>
+					<div class="form-group">
+                      <label for="exampleInputEmail1">Bank Name</label>
+                      <input type="text" class="form-control" name="bank_name" id="bank_name" placeholder="Enter Bank Name" ng-model="Staff.bank_name">
+                    </div>
+					<div class="form-group">
+                      <label for="exampleInputEmail1">Bank Branch</label>
+                      <input type="text" class="form-control" name="bank_branch" id="bank_branch" placeholder="Enter Bank Branch" ng-model="Staff.bank_branch">
+                    </div>
+					<div class="form-group">
+                      <label for="exampleInputEmail1">Bank IFSC Code</label>
+                      <input type="text" class="form-control" name="bank_ifsc" id="bank_ifsc" placeholder="Enter IFSC Code" ng-model="Staff.bank_ifsc">
+                    </div>
+					<div class="form-group">
+                      <label for="exampleInputEmail1">PAN card No.</label>
+                      <input type="text" class="form-control" name="pan_card" id="pan_card" placeholder="Enter card No." ng-model="Staff.pan_card">
+                    </div>
+					 <div class="form-group">
+                    <label>Select Identity Proof</label>
+                    <select class="form-control select2" style="width: 100%;" name="id_proof" ng-model="Staff.id_proof">
+					 <option  selected="selected" value="0">Please select one</option>
+                      <option  value="Voter ID Card">Voter ID Card </option>
+                      <option value="Aadhar Card">Aadhar Card</option>
+					   <option value="Ration Card">Ration Card</option>
+					    <option value="Driving Licence">Driving Licence</option>
+						
+                      
+                    </select>
+                  </div>
+					<div class="form-group">
+                      <label for="exampleInputEmail1">Identity Proof Number</label>
+                      <input type="text" class="form-control" name="id_proof_number" id="id_proof_number" placeholder="Enter ID Proof No" ng-model="Staff.id_proof_number">
+                    </div>
+					
+					
+					<div class="form-group">
+                    <label>Joining Date:</label>
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <input type="date" class="form-control" name="join_date" data-inputmask="'alias': 'dd/mm/yyyy'" value="10-10-2010" ng-model="Staff.join_date" data-mask>
+                    </div><!-- /.input group -->
+                  </div>
+				  <div class="form-group">
+                      <label for="exampleInputEmail1">Designation</label>
+                    <select class="form-control select2" style="width: 100%;" name="join_post" id="join_post" ng-model="Staff.join_post" required>
+					 <option  selected="selected" value="0">Select Designation</option>
+                      <option  value="head_office_admin">Head Office Manager</option>
+                      <option  value="branch_office_admin">Branch Office Manager</option>
+                      <option value="data_entry_operator">CSC Data Entry Operator</option>
+					   <option  value="area_manager">Area Manager</option>
+					   <option  value="sales_manager">Sales Manager</option>
+					   <option  value="sales_executive">Sales Executive</option>
+                                           
+                    </select>
+                    </div>
+				
+					<div class="form-group">
+                      <label for="exampleInputEmail1">Upload Photo</label>
+                      <input type="file" class="form-control" name="photo" id="photo" />
+                    </div>
+			   </div><!-- /.box-body -->
+     
+                
+              </div><!-- /.box -->
+			  
+			    
+            </div><!--/.col (right) -->
+			
+			
+			<div class="col-md-12">
+			
+			 <div class="box-footer">
+			 
+			 <input type="submit" id="add_emp" name="add_emp" class="btn btn-info"  value = "Submit Form" />
+                    <button type="reset" class="btn btn-default pull-right">Reset Form</button>
+                    </form>
+                  </div><!-- /.box-footer -->
+				
+			
+			
+			</div>
+			
+          </div>   <!-- /.row -->
+        </section><!-- /.content -->
+        <!-- Main content -->
+       
+      </div><!-- /.content-wrapper -->
+
+	  
+	  
+	  
+	  
+	  
+	  
+	
