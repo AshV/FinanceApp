@@ -1,0 +1,101 @@
+      <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            CRRT
+            <small> New</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="../index"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">CRT</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- left column -->
+
+            <div class="col-md-12">
+                <div class="callout callout-success">
+
+                    <p>Successfully Submitted</p>
+                </div><!-- /.box-footer -->
+
+            </div>
+            <form role="form" name='frmLogin' >
+
+                <div class="col-md-12">
+                    <!-- Horizontal Form -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">CRT Detail</h3>
+                        </div><!-- /.box-header -->
+                        <!-- form start -->
+                        <div class="box-body">
+
+                            <div class="form-group">
+                                <label for="InputEmail1">CRT Name</label>
+                                <input type="text" class="form-control" id="InputEmail1" placeholder="Enter email" id="email" name="email" ng-model="Center.Code" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="InputEmail1">Unit Name</label>
+                                <input type="number" class="form-control" id="InputEmail1" placeholder="Enter email" id="email" name="email" ng-model="Center.PIN" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="InputEmail1">BRD Name</label>
+                                <input type="number" class="form-control" id="InputEmail1" placeholder="Enter email" id="email" name="email" ng-model="Center.PIN" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="InputEmail1">BE Name</label>
+                                <input type="number" class="form-control" id="InputEmail1" placeholder="Enter email" id="email" name="email" ng-model="Center.PIN" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Center Manager</label>
+                                <select class="form-control select2" style="width: 100%;" name="nationality" ng-model="Center.Manager">
+                                    <option Value="india" selected="selected">India</option>
+                                    <option Value="pakistan">Pakistan</option>
+                                    <option value="washington"> Washington</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Formation Date</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="date" class="form-control" name="dob" data-inputmask="'alias': 'dd/mm/yyyy'" value="1990-01-01" ng-model="Center.FormationDate" data-mask>
+                                </div><!-- /.input group -->
+                            </div>
+
+                            <div class="form-group">
+                                <label for="InputEmail1">Center Address</label>
+                                <textarea class="form-control" placeholder="Enter email" ng-model="Center.Address"></textarea>
+                            </div>
+
+                        </div><!-- /.box-body -->
+
+                    </div><!-- /.box -->
+                </div><!--/.col (right) -->
+
+                <div class="col-md-12">
+
+                    <div class="box-footer">
+
+                        <input type="submit" ng-click="AddRec()" class="btn btn-info" value="Submit Form" />
+                        <button type="reset" class="btn btn-default pull-right">Reset Form</button>
+
+                    </div><!-- /.box-footer -->
+                </div>
+            </form>
+
+        </div>   <!-- /.row -->
+    </section><!-- /.content -->
+    <!-- Main content -->
+
+</div><!-- /.content-wrapper -->

@@ -29,6 +29,10 @@ financeApp.config(function ($routeProvider) {
             templateUrl: 'Pages/Vendor/NewVendor.html',
             controller: 'NewVendorController'
         })
+        .when('/NewCenter', {
+            templateUrl: 'Pages/Center/NewCenter.html',
+            controller: 'NewCenterController'
+        })
         .otherwise({
             redirectTo: '/dashboard'
         });
@@ -70,4 +74,11 @@ financeApp.controller('NewVendorController', function ($scope, $firebaseObject) 
     }
 });
 
+financeApp.controller('NewCenterController', function ($scope, $firebaseObject) {
+    var rootRef = new Firebase(ROOTREF);
+    $scope.AddRec = function () {
+        rootRef.child('Center').push($scope.Center);
+        $scope.Center = null;
+    }
+});
 
