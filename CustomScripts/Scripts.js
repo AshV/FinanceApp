@@ -21,6 +21,14 @@ financeApp.config(function ($routeProvider) {
             templateUrl: 'Pages/Client/AddNewClient.html',
             controller: 'AddNewClientController'
         })
+        .when('/NewLoanProposal', {
+            templateUrl: 'Pages/LoanProposal/NewProposal.html',
+            controller: 'NewLoanProposalController'
+        })
+        .when('/NewVendor', {
+            templateUrl: 'Pages/Vendor/NewVendor.html',
+            controller: 'NewVendorController'
+        })
         .otherwise({
             redirectTo: '/dashboard'
         });
@@ -43,6 +51,22 @@ financeApp.controller('AddNewClientController', function ($scope, $firebaseObjec
     $scope.AddRec = function () {
         rootRef.child('Client').push($scope.Client);
         $scope.Client = null;
+    }
+});
+
+financeApp.controller('NewLoanProposalController', function ($scope, $firebaseObject) {
+    var rootRef = new Firebase(ROOTREF);
+    $scope.AddRec = function () {
+        rootRef.child('LoanProposal').push($scope.Proposal);
+        $scope.Proposal = null;
+    }
+});
+
+financeApp.controller('NewVendorController', function ($scope, $firebaseObject) {
+    var rootRef = new Firebase(ROOTREF);
+    $scope.AddRec = function () {
+        rootRef.child('Vendor').push($scope.Vendor);
+        $scope.Vendor = null;
     }
 });
 
