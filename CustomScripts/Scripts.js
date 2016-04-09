@@ -38,16 +38,55 @@ financeApp.config(function ($routeProvider) {
         });
 });
 
+financeApp.service('IdService', function () {
+    this.getId = function (_Module) {
+        var RetrivedId = 123;
+        var IDs = {
+            Employee: 50000,
+            Client: 2000,
+            Proposal: 500,
+            Vendor: 800,
+            Center: 1000,
+            CRT: 1000
+        };
+        var ref = new Firebase(ROOTREF + "/IDs/" + _Module);
+
+        ref.once("value", function (snapshot) {
+            if (snapshot.val() == null) {
+                ref.set(IDs[_Module]);
+                RetrivedId = IDs[_Module];
+            } else {
+                RetrivedId = snapshot.val();
+                console.log(snapshot.val());
+            }
+            }, function (errorObject) {
+            RetrivedId = null;
+            console.log("The read failed: " + errorObject.code);
+        });
+        return RetrivedId;
+
+        // ID is printing is console but not returning to variable because of come Asymcs Call
+        // Giving up this approch, will tyr to use run which will get all the IDs at once
+    }
+});
+
 financeApp.controller('mainController', function ($scope, $firebaseObject) {
     var rootRef = new Firebase(ROOTREF);
 });
 
 financeApp.controller('AddNewEmployeeController', function ($scope, $firebaseObject) {
     var rootRef = new Firebase(ROOTREF);
+    $scope.AddRec = function () {
+        rootRef.child('Employee').push($scope.Employee);
+        $scope.Employee = null;
+    }
 });
 
-financeApp.controller('ViewEmployeeController', function ($scope, $firebaseObject) {
+financeApp.controller('ViewEmployeeController', function ($scope, $firebaseObject, IdService) {
     var rootRef = new Firebase(ROOTREF);
+    console.log("Start");
+    console.log(IdService.getId("CRT"));
+    console.log("End");
 });
 
 financeApp.controller('AddNewClientController', function ($scope, $firebaseObject) {
