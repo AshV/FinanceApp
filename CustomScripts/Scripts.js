@@ -109,9 +109,11 @@ financeApp.controller('NewCenterController', function ($scope, $firebaseObject) 
             $scope.Center.ID = snapshot.val();
             var key = rootRef.child('Center').child(snapshot.val());
             key.set($scope.Center);
+            rootRef.child("IDs/Center").set(parseInt($scope.Center.ID) + 1);
         }, function (errorObject) {
             console.log("The read failed: " + errorObject.code);
         });
+        rootRef.child("IDs/Center").update()
         //rootRef.child('Center').push($scope.Center);
         //$scope.Center = null;
     }

@@ -23,7 +23,7 @@
                 </div><!-- /.box-footer -->
 
             </div>
-            <form role="form" name='frmLogin' >
+            <form role="form" name="formCenter" ng-submit="AddRec()" >
 
                 <div class="col-md-12">
                     <!-- Horizontal Form -->
@@ -76,8 +76,8 @@
                 <div class="col-md-12">
 
                     <div class="box-footer">
-
-                        <input type="submit" ng-click="AddRec()" class="btn btn-info" value="Submit Form" />
+                        <input ng-disabled="formCenter.$invalid" type="submit" class="btn btn-info" value="Submit Form" />
+                        <!--<input type="submit" ng-click="AddRec()" class="btn btn-info" value="Submit Form" />-->
                         <button type="reset" class="btn btn-default pull-right">Reset Form</button>
 
                     </div><!-- /.box-footer -->
