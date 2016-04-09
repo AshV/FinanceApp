@@ -38,36 +38,22 @@ financeApp.config(function ($routeProvider) {
         });
 });
 
-financeApp.service('IdService', function () {
-    this.getId = function (_Module) {
-        var RetrivedId = 123;
-        var IDs = {
-            Employee: 50000,
-            Client: 2000,
-            Proposal: 500,
-            Vendor: 800,
-            Center: 1000,
-            CRT: 1000
-        };
-        var ref = new Firebase(ROOTREF + "/IDs/" + _Module);
-
-        ref.once("value", function (snapshot) {
-            if (snapshot.val() == null) {
-                ref.set(IDs[_Module]);
-                RetrivedId = IDs[_Module];
-            } else {
-                RetrivedId = snapshot.val();
-                console.log(snapshot.val());
-            }
-            }, function (errorObject) {
-            RetrivedId = null;
-            console.log("The read failed: " + errorObject.code);
-        });
-        return RetrivedId;
-
-        // ID is printing is console but not returning to variable because of come Asymcs Call
-        // Giving up this approch, will tyr to use run which will get all the IDs at once
-    }
+financeApp.run(function ($rootScope) {
+    var ref = new Firebase(ROOTREF + "/IDs/");
+    ref.once("value", function (snapshot) {
+        if (snapshot.val() == null) {
+            ref.set({
+                Employee: 50000,
+                Client: 2000,
+                Proposal: 500,
+                Vendor: 800,
+                Center: 1000,
+                CRT: 1000
+            });
+        }
+    }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+    });
 });
 
 financeApp.controller('mainController', function ($scope, $firebaseObject) {
@@ -82,11 +68,14 @@ financeApp.controller('AddNewEmployeeController', function ($scope, $firebaseObj
     }
 });
 
-financeApp.controller('ViewEmployeeController', function ($scope, $firebaseObject, IdService) {
+financeApp.controller('ViewEmployeeController', function ($scope, $firebaseObject) {
     var rootRef = new Firebase(ROOTREF);
-    console.log("Start");
-    console.log(IdService.getId("CRT"));
-    console.log("End");
+
+    rootRef.child("IDs/CRT").on("value", function (snapshot) {
+        console.log(snapshot.val());
+    }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+    });
 });
 
 financeApp.controller('AddNewClientController', function ($scope, $firebaseObject) {
@@ -116,8 +105,15 @@ financeApp.controller('NewVendorController', function ($scope, $firebaseObject) 
 financeApp.controller('NewCenterController', function ($scope, $firebaseObject) {
     var rootRef = new Firebase(ROOTREF);
     $scope.AddRec = function () {
-        rootRef.child('Center').push($scope.Center);
-        $scope.Center = null;
+        rootRef.child("IDs/Center").once("value", function (snapshot) {
+            $scope.Center.ID = snapshot.val();
+            var key = rootRef.child('Center').child(snapshot.val());
+            key.set($scope.Center);
+        }, function (errorObject) {
+            console.log("The read failed: " + errorObject.code);
+        });
+        //rootRef.child('Center').push($scope.Center);
+        //$scope.Center = null;
     }
 });
 
