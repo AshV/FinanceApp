@@ -1,0 +1,116 @@
+      <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Loan Proposal
+            <small> New</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="../index"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active"> New Loan Proposal</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- left column -->
+
+            <div class="col-md-12">
+                <div class="callout callout-success">
+
+                    <p>Successfully Submitted</p>
+                </div><!-- /.box-footer -->
+
+            </div>
+            <form role="form" name='frmLogin'>
+
+                <div class="col-md-12">
+                    <!-- Horizontal Form -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Loan Proposal Detail</h3>
+                        </div><!-- /.box-header -->
+                        <!-- form start -->
+                        <div class="box-body">
+
+                            <div class="form-group">
+                                <label for="InputEmail1">Amount</label>
+                                <input type="number" class="form-control" id="InputEmail1" placeholder="Enter email" ng-model="Proposal.Amount" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Center Name</label>
+                                <select class="form-control select2" style="width: 100%;" name="nationality" ng-model="Proposal.Center">
+                                    <option Value="india" selected="selected">India</option>
+                                    <option Value="pakistan">Pakistan</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Client Name</label>
+                                <select class="form-control select2" style="width: 100%;" name="nationality" ng-model="Proposal.Client">
+                                    <option Value="india" selected="selected">India</option>
+                                    <option Value="pakistan">Pakistan</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="InputEmail1">Loan Product</label>
+                                <input type="text" class="form-control" id="InputEmail1" placeholder="Enter email" id="email" name="email" ng-model="Proposal.Product" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="InputEmail1">Loan Purpose</label>
+                                <input type="text" class="form-control" id="InputEmail1" placeholder="Enter email" id="email" name="email" ng-model="Proposal.Purpose" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Loan Proposal Date</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="date" class="form-control" name="dob" data-inputmask="'alias': 'dd/mm/yyyy'" value="1990-01-01" ng-model="Proposal.Date" data-mask>
+                                </div><!-- /.input group -->
+                            </div>
+
+                            <div class="form-group">
+                                <label>Staff Name</label>
+                                <select class="form-control select2" style="width: 100%;" name="nationality" ng-model="Proposal.Staff">
+                                    <option Value="india" selected="selected">India</option>
+                                    <option Value="pakistan">Pakistan</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Vendor Name</label>
+                                <select class="form-control select2" style="width: 100%;" name="nationality" ng-model="Proposal.Vendor">
+                                    <option Value="india" selected="selected">India</option>
+                                    <option Value="pakistan">Pakistan</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="InputEmail1">Comments</label>
+                                <textarea placeholder="Enter Comments" ng-model="Proposal.Comments" ></textarea>
+                            </div>
+
+                        </div><!-- /.box-body -->
+
+                    </div><!-- /.box -->
+                </div><!--/.col (right) -->
+
+                <div class="col-md-12">
+                    <div class="box-footer">
+                        <input type="submit" ng-click="AddRec()"  class="btn btn-info" value="Submit Form" />
+                        <button type="reset" class="btn btn-default pull-right">Reset Form</button>
+                    </div><!-- /.box-footer -->
+                </div>
+            </form>
+
+        </div>   <!-- /.row -->
+    </section><!-- /.content -->
+    <!-- Main content -->
+
+</div><!-- /.content-wrapper -->
