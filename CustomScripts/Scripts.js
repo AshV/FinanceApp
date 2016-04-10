@@ -2,7 +2,6 @@
 
 var financeApp = angular.module('financeApp', ['ngRoute', 'firebase']);
 
-// configure our routes
 financeApp.config(function ($routeProvider) {
     $routeProvider
         .when('/dashboard', {
@@ -52,6 +51,10 @@ financeApp.config(function ($routeProvider) {
         .when('/UpdateCenter', {
             templateUrl: 'Pages/Center/UpdateCenter.html',
             controller: 'UpdateCenterController'
+        })
+        .when('/ViewCenter', {
+            templateUrl: 'Pages/Center/ViewCenter.html',
+            controller: 'ViewCenterController'
         })
         .when('/NewCRT', {
             templateUrl: 'Pages/CRT/NewCRT.html',
@@ -174,8 +177,6 @@ financeApp.controller('UpdateClientController', function ($scope, $firebaseObjec
     }
 });
 
-
-
 financeApp.controller('NewVendorController', function ($scope, $firebaseObject, $location, $timeout) {
     var rootRef = new Firebase(ROOTREF);
     var IdRef = rootRef.child("IDs/Vendor");
@@ -214,7 +215,7 @@ financeApp.controller('UpdateVendorController', function ($scope, $firebaseObjec
     }
 });
 
-financeApp.controller('NewCenterController', function ($scope, $firebaseObject,$location,$timeout) {
+financeApp.controller('NewCenterController', function ($scope, $firebaseObject, $location, $timeout) {
     var rootRef = new Firebase(ROOTREF);
     var IdRef = rootRef.child("IDs/Center");
     $scope.AddRec = function () {
@@ -235,21 +236,26 @@ financeApp.controller('NewCenterController', function ($scope, $firebaseObject,$
     }
 });
 
-financeApp.controller('UpdateCenterController', function ($scope, $firebaseObject,$location) {
+financeApp.controller('UpdateCenterController', function ($scope, $firebaseObject, $location) {
     var rootRef = new Firebase(ROOTREF);
     var recordRef = rootRef.child("Center/" + $location.search().ID);
     recordRef.on("value", function (data) {
         console.log(data.val());
         $scope.Center = data.val();
-        }, function (errorObject) {
-            console.log("The read failed: " + errorObject.code);
-        });    
+    }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+    });
 
     $scope.UpdateRec = function () {
         if (!formUpdate.$invalid) {
             recordRef.set($scope.Center);
         }
     }
+});
+
+financeApp.controller('ViewCenterController', function ($scope, $firebaseObject, $firebaseArray) {
+    var rootRef = new Firebase(ROOTREF);
+    $scope.CenterList = $firebaseArray(rootRef.child("Center"));
 });
 
 financeApp.controller('NewCRTController', function ($scope, $firebaseObject, $location, $timeout) {
