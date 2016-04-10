@@ -33,6 +33,10 @@ financeApp.config(function ($routeProvider) {
             templateUrl: 'Pages/Center/NewCenter.html',
             controller: 'NewCenterController'
         })
+        .when('/UpdateCenter', {
+            templateUrl: 'Pages/Center/UpdateCenter.html',
+            controller: 'UpdateCenterController'
+        })
         .otherwise({
             redirectTo: '/dashboard'
         });
@@ -94,7 +98,7 @@ financeApp.controller('NewLoanProposalController', function ($scope, $firebaseOb
     }
 });
 
-financeApp.controller('NewVendorController', function ($scope, $firebaseObject) {
+financeApp.controller('NewVendorController', function ($scope, $firebaseObject, $location) {
     var rootRef = new Firebase(ROOTREF);
     $scope.AddRec = function () {
         rootRef.child('Vendor').push($scope.Vendor);
@@ -102,20 +106,50 @@ financeApp.controller('NewVendorController', function ($scope, $firebaseObject) 
     }
 });
 
-financeApp.controller('NewCenterController', function ($scope, $firebaseObject) {
+financeApp.controller('NewCenterController', function ($scope, $firebaseObject,$location,$timeout) {
     var rootRef = new Firebase(ROOTREF);
     $scope.AddRec = function () {
-        rootRef.child("IDs/Center").once("value", function (snapshot) {
-            $scope.Center.ID = snapshot.val();
-            var key = rootRef.child('Center').child(snapshot.val());
-            key.set($scope.Center);
-            rootRef.child("IDs/Center").set(parseInt($scope.Center.ID) + 1);
+        if (!formAdd.$invalid) {
+            rootRef.child("IDs/Center").once("value", function (snapshot) {
+                $scope.Center.ID = snapshot.val();
+                var key = rootRef.child('Center').child(snapshot.val());
+                key.set($scope.Center);
+                rootRef.child("IDs/Center").set(parseInt($scope.Center.ID) + 1);
+                $scope.Center = null;
+                $timeout(function () {
+                    $location.path('/UpdateCenter').search({ ID: snapshot.val() });
+                }, 0);
+//                $location.path('/UpdateCenter');
+            }, function (errorObject) {
+                console.log("The read failed: " + errorObject.code);
+            });
+        }
+    }
+});
+
+financeApp.controller('UpdateCenterController', function ($scope, $firebaseObject,$location) {
+    var rootRef = new Firebase(ROOTREF);    
+
+    rootRef.child("Center/" + $location.search().ID).once("value", function (data) {
+        console.log(data.val());
+        $scope.Center = data.val();
         }, function (errorObject) {
             console.log("The read failed: " + errorObject.code);
         });
-        rootRef.child("IDs/Center").update()
-        //rootRef.child('Center').push($scope.Center);
-        //$scope.Center = null;
-    }
+    
+
+    //$scope.AddRec = function () {
+    //    if (!formAdd.$invalid) {
+    //        rootRef.child("IDs/Center").once("value", function (snapshot) {
+    //            $scope.Center.ID = snapshot.val();
+    //            var key = rootRef.child('Center').child(snapshot.val());
+    //            key.set($scope.Center);
+    //            rootRef.child("IDs/Center").set(parseInt($scope.Center.ID) + 1);
+    //            $location.path('/AddNewClient?ID=' + snapshot.val());
+    //        }, function (errorObject) {
+    //            console.log("The read failed: " + errorObject.code);
+    //        });
+    //    }
+    //}
 });
 
