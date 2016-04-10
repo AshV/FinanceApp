@@ -128,9 +128,9 @@ financeApp.controller('NewCenterController', function ($scope, $firebaseObject,$
 });
 
 financeApp.controller('UpdateCenterController', function ($scope, $firebaseObject,$location) {
-    var rootRef = new Firebase(ROOTREF);    
-
-    rootRef.child("Center/" + $location.search().ID).once("value", function (data) {
+    var rootRef = new Firebase(ROOTREF);
+    var recordRef = rootRef.child("Center/" + $location.search().ID);
+    recordRef.on("value", function (data) {
         console.log(data.val());
         $scope.Center = data.val();
         }, function (errorObject) {
@@ -138,18 +138,10 @@ financeApp.controller('UpdateCenterController', function ($scope, $firebaseObjec
         });
     
 
-    //$scope.AddRec = function () {
-    //    if (!formAdd.$invalid) {
-    //        rootRef.child("IDs/Center").once("value", function (snapshot) {
-    //            $scope.Center.ID = snapshot.val();
-    //            var key = rootRef.child('Center').child(snapshot.val());
-    //            key.set($scope.Center);
-    //            rootRef.child("IDs/Center").set(parseInt($scope.Center.ID) + 1);
-    //            $location.path('/AddNewClient?ID=' + snapshot.val());
-    //        }, function (errorObject) {
-    //            console.log("The read failed: " + errorObject.code);
-    //        });
-    //    }
-    //}
+    $scope.UpdateRec = function () {
+        if (!formUpdate.$invalid) {
+            recordRef.set($scope.Center);
+        }
+    }
 });
 

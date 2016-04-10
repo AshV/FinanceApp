@@ -3,12 +3,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Center
-            <small> Update</small>
+            CRT
+            <small> New</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="../index"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Center</li>
+            <li class="active">CRT</li>
         </ol>
     </section>
     <!-- Main content -->
@@ -23,26 +23,37 @@
                 </div><!-- /.box-footer -->
 
             </div>
-            <form role="form" name="formUpdate" ng-submit="UpdateRec()" >
+            <form role="form" name='frmLogin' >
+
                 <div class="col-md-12">
                     <!-- Horizontal Form -->
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Center Detail</h3>
+                            <h3 class="box-title">CRT Detail</h3>
                         </div><!-- /.box-header -->
                         <!-- form start -->
                         <div class="box-body">
 
                             <div class="form-group">
-                                <label for="InputEmail1">Center Code</label>
+                                <label for="InputEmail1">CRT Name</label>
                                 <input type="text" class="form-control" id="InputEmail1" placeholder="Enter email" id="email" name="email" ng-model="Center.Code" />
                             </div>
 
                             <div class="form-group">
-                                <label for="InputEmail1">Center PIN</label>
+                                <label for="InputEmail1">Unit Name</label>
                                 <input type="number" class="form-control" id="InputEmail1" placeholder="Enter email" id="email" name="email" ng-model="Center.PIN" />
                             </div>
 
+                            <div class="form-group">
+                                <label for="InputEmail1">BRD Name</label>
+                                <input type="number" class="form-control" id="InputEmail1" placeholder="Enter email" id="email" name="email" ng-model="Center.PIN" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="InputEmail1">BE Name</label>
+                                <input type="number" class="form-control" id="InputEmail1" placeholder="Enter email" id="email" name="email" ng-model="Center.PIN" />
+                            </div>
+                         
                             <div class="form-group">
                                 <label>Center Manager</label>
                                 <select class="form-control select2" style="width: 100%;" name="nationality" ng-model="Center.Manager">
@@ -75,8 +86,8 @@
                 <div class="col-md-12">
 
                     <div class="box-footer">
-                        <input ng-model="formAdd.$invalid" type="hidden" class="btn btn-info" value="Submit Form" />
-                        <input type="submit" class="btn btn-info" value="Submit Form" />
+
+                        <input type="submit" ng-click="AddRec()" class="btn btn-info" value="Submit Form" />
                         <button type="reset" class="btn btn-default pull-right">Reset Form</button>
 
                     </div><!-- /.box-footer -->
