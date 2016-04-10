@@ -20,8 +20,8 @@
                     <p>Successfully Submitted</p>
                 </div><!-- /.box-footer -->
             </div>
-        
-            <form role="form" name="formAdd" ng-submit="AddRec()">
+
+            <form role="form" name="formUpdate" ng-submit="UpdateRec()">
                 <div class="col-md-12">
                     <!-- Horizontal Form -->
                     <div class="box box-primary">
@@ -198,8 +198,8 @@
                 </div><!--/.col (right) -->
                 <div class="col-md-12">
                     <div class="box-footer">
-                        <input ng-model="formAdd.$invalid" type="hidden" class="btn btn-info" value="Submit Form" />
-                        <input type="submit" class="btn btn-info" value="Submit Form" />
+                        <input ng-model="formUpdate.$invalid" type="hidden" class="btn btn-info" value="Submit Form" />
+                        <input type="submit" class="btn btn-info" value="Update" />
                         <button type="reset" class="btn btn-default pull-right">Reset Form</button>
                     </div><!-- /.box-footer -->
                 </div>

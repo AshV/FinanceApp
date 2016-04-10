@@ -18,12 +18,11 @@
 
             <div class="col-md-12">
                 <div class="callout callout-success">
-
                     <p>Successfully Submitted</p>
                 </div><!-- /.box-footer -->
-
             </div>
-            <form role="form" name="frmLogin" >
+
+            <form role="form" name="formUpdate" ng-submit="UpdateRec()">
                 <div class="col-md-12">
                     <!-- Horizontal Form -->
                     <div class="box box-primary">
@@ -131,7 +130,7 @@
                                     <option value="muslim">Muslim</option>
                                     <option value="sikh">Sikh </option>
                                     <option value="christian">Christian</option>
-                                   
+
                                 </select>
                             </div>
 
@@ -142,7 +141,7 @@
                                     <option value="Gemployee">Govt.Employee</option>
                                     <option value="Semployee">Self Employed</option>
                                     <option value="student">Student</option>
-                                                                   
+
                                 </select>
                             </div>
 
@@ -191,7 +190,7 @@
                                     <option value="center1">center1</option>
                                     <option value="center2">center2</option>
                                     <option value="center3">center3</option>
-                                                                   
+
                                 </select>
                             </div>
 
@@ -217,12 +216,10 @@
                 <!--place for right Column, I have removed-->
 
                 <div class="col-md-12">
-
                     <div class="box-footer">
-
-                        <input type="submit" ng-click="AddRec()" id="add_emp" name="add_client" class="btn btn-info" value="Submit Form" />
+                        <input ng-model="formUpdate.$invalid" type="hidden" class="btn btn-info" value="Submit Form" />
+                        <input type="submit" class="btn btn-info" value="Update" />
                         <button type="reset" class="btn btn-default pull-right">Reset Form</button>
-
                     </div><!-- /.box-footer -->
                 </div>
             </form>

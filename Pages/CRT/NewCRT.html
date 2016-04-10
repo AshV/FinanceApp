@@ -18,13 +18,11 @@
 
             <div class="col-md-12">
                 <div class="callout callout-success">
-
                     <p>Successfully Submitted</p>
                 </div><!-- /.box-footer -->
-
             </div>
-            <form role="form" name='frmLogin' >
 
+            <form role="form" name="formAdd" ng-submit="AddRec()">
                 <div class="col-md-12">
                     <!-- Horizontal Form -->
                     <div class="box box-primary">
@@ -33,27 +31,23 @@
                         </div><!-- /.box-header -->
                         <!-- form start -->
                         <div class="box-body">
-
                             <div class="form-group">
                                 <label for="InputEmail1">CRT Name</label>
                                 <input type="text" class="form-control" id="InputEmail1" placeholder="Enter email" id="email" name="email" ng-model="Center.Code" />
                             </div>
-
                             <div class="form-group">
                                 <label for="InputEmail1">Unit Name</label>
                                 <input type="number" class="form-control" id="InputEmail1" placeholder="Enter email" id="email" name="email" ng-model="Center.PIN" />
                             </div>
-
                             <div class="form-group">
                                 <label for="InputEmail1">BRD Name</label>
                                 <input type="number" class="form-control" id="InputEmail1" placeholder="Enter email" id="email" name="email" ng-model="Center.PIN" />
                             </div>
-
                             <div class="form-group">
                                 <label for="InputEmail1">BE Name</label>
                                 <input type="number" class="form-control" id="InputEmail1" placeholder="Enter email" id="email" name="email" ng-model="Center.PIN" />
                             </div>
-                         
+
                             <div class="form-group">
                                 <label>Center Manager</label>
                                 <select class="form-control select2" style="width: 100%;" name="nationality" ng-model="Center.Manager">
@@ -62,7 +56,6 @@
                                     <option value="washington"> Washington</option>
                                 </select>
                             </div>
-
                             <div class="form-group">
                                 <label>Formation Date</label>
                                 <div class="input-group">
@@ -72,24 +65,18 @@
                                     <input type="date" class="form-control" name="dob" data-inputmask="'alias': 'dd/mm/yyyy'" value="1990-01-01" ng-model="Center.FormationDate" data-mask>
                                 </div><!-- /.input group -->
                             </div>
-
                             <div class="form-group">
                                 <label for="InputEmail1">Center Address</label>
                                 <textarea class="form-control" placeholder="Enter email" ng-model="Center.Address"></textarea>
                             </div>
-
                         </div><!-- /.box-body -->
-
                     </div><!-- /.box -->
                 </div><!--/.col (right) -->
-
                 <div class="col-md-12">
-
                     <div class="box-footer">
-
-                        <input type="submit" ng-click="AddRec()" class="btn btn-info" value="Submit Form" />
+                        <input ng-model="formAdd.$invalid" type="hidden" class="btn btn-info" value="Submit Form" />
+                        <input type="submit" class="btn btn-info" value="Submit Form" />
                         <button type="reset" class="btn btn-default pull-right">Reset Form</button>
-
                     </div><!-- /.box-footer -->
                 </div>
             </form>

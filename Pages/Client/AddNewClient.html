@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>
             Client
-            <small>Add New</small>
+            <small>Update</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="../index"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -18,12 +18,11 @@
 
             <div class="col-md-12">
                 <div class="callout callout-success">
-
                     <p>Successfully Submitted</p>
                 </div><!-- /.box-footer -->
-
             </div>
-            <form role="form" name="frmLogin" >
+
+            <form role="form" name="formAdd" ng-submit="AddRec()">
                 <div class="col-md-12">
                     <!-- Horizontal Form -->
                     <div class="box box-primary">
@@ -32,37 +31,32 @@
                         </div><!-- /.box-header -->
                         <!-- form start -->
                         <div class="box-body">
-
                             <div class="form-group">
                                 <label for="InputEmail1">Name</label>
                                 <div class="row">
                                     <div class="col-xs-4">
-                                        <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name*" onKeyPress="return letter(event)" maxlength="35" ng-model="Client.FName" required/>
+                                        <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name*" onKeyPress="return letter(event)" maxlength="35" ng-model="Client.FName" required />
                                     </div>
                                     <div class="col-xs-4">
                                         <input type="text" class="form-control" placeholder="Middle Name*" id="l_name" name="m_name" onKeyPress="return letter(event)" maxlength="35" ng-model="Client.MName" />
                                     </div>
-									 <div class="col-xs-4">
-                                        <input type="text" class="form-control" placeholder="Last Name*" id="l_name" name="l_name" onKeyPress="return letter(event)" maxlength="35" ng-model="Client.LName" required/>
+                                    <div class="col-xs-4">
+                                        <input type="text" class="form-control" placeholder="Last Name*" id="l_name" name="l_name" onKeyPress="return letter(event)" maxlength="35" ng-model="Client.LName" required />
                                     </div>
                                 </div><!-- /.box-body -->
                             </div>
-
                             <div class="form-group">
                                 <label for="">Father Name</label>
-                                <input type="text" class="form-control" name="father_name" id="father_name" placeholder="Father Name*" ng-model="Client.FatherName" required/>
+                                <input type="text" class="form-control" name="father_name" id="father_name" placeholder="Father Name*" ng-model="Client.FatherName" required />
                             </div>
-
                             <div class="form-group">
                                 <label for="InputEmail1">Email ID</label>
                                 <input type="email" class="form-control" id="InputEmail1" placeholder="email id" id="email" name="email" ng-model="Client.Email" />
                             </div>
-
                             <div class="form-group">
                                 <label for="InputContact">Contact Number</label>
-                                <input type="number" class="form-control" id="InputContact" placeholder="Contact Number" id="email" name="email" ng-model="Client.Contact" required/>
+                                <input type="number" class="form-control" id="InputContact" placeholder="Contact Number" id="email" name="email" ng-model="Client.Contact" required />
                             </div>
-
                             <div class="form-group">
                                 <label>Date of Birth</label>
                                 <div class="input-group">
@@ -72,17 +66,14 @@
                                     <input type="date" class="form-control" name="dob" data-inputmask="'alias': 'dd/mm/yyyy'" value="1990-01-01" ng-model="Client.DOB" data-mask required>
                                 </div><!-- /.input group -->
                             </div>
-
                             <div class="form-group">
                                 <label for="InputContact">Aadhar Number</label>
                                 <input type="number" class="form-control" id="InputContact" placeholder="Adhar Card number" id="adhar_number" name="adhar_number" ng-model="Client.Aadhar" />
                             </div>
-
                             <div class="form-group">
                                 <label for="InputContact">PAN</label>
                                 <input type="text" class="form-control" id="InputContact" placeholder="PAN CARD" id="email" name="email" ng-model="Client.PAN" />
                             </div>
-
                             <div class="form-group">
                                 <label for="InputEmail1">Select Gender</label>
                                 <div class="form-control">
@@ -98,18 +89,16 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label>Marital status</label>
-                                <select class="form-control select2" style="width: 100%;" name="m_status" ng-model="Client.MaritalStatus" required/>
-                                    <option selected="selected" value="0">Please select one</option>
-                                    <option value="unmarried">Unmarried </option>
-                                    <option value="married">Married</option>
-                                    <option value="divorced">Divorced </option>
-                                    <option value="widow">Widow </option>
+                                <select class="form-control select2" style="width: 100%;" name="m_status" ng-model="Client.MaritalStatus" required />
+                                <option selected="selected" value="0">Please select one</option>
+                                <option value="unmarried">Unmarried </option>
+                                <option value="married">Married</option>
+                                <option value="divorced">Divorced </option>
+                                <option value="widow">Widow </option>
                                 </select>
                             </div>
-
                             <div class="form-group">
                                 <label for="qualification">Highest Qualification </label>
                                 <select class="form-control select2" style="width: 100%;" name="h_qualification" ng-model="Client.Qualification" required>
@@ -122,19 +111,17 @@
                                     <option value="5th">5th</option>
                                 </select>
                             </div>
-
                             <div class="form-group">
                                 <label for="">Community</label>
-                               <select class="form-control select2" style="width: 100%;" name="community" ng-model="Client.community" required>
+                                <select class="form-control select2" style="width: 100%;" name="community" ng-model="Client.community" required>
                                     <option selected="selected" value="0">Please select Community Qualification</option>
                                     <option value="hindu">Hindu </option>
                                     <option value="muslim">Muslim</option>
                                     <option value="sikh">Sikh </option>
                                     <option value="christian">Christian</option>
-                                   
+
                                 </select>
                             </div>
-
                             <div class="form-group">
                                 <label for="">Occupation</label>
                                 <select class="form-control select2" style="width: 100%;" name="h_qualification" ng-model="Client.Qualification" required>
@@ -142,10 +129,9 @@
                                     <option value="Gemployee">Govt.Employee</option>
                                     <option value="Semployee">Self Employed</option>
                                     <option value="student">Student</option>
-                                                                   
+
                                 </select>
                             </div>
-
                             <div class="form-group">
                                 <label for="selfbusiness">Self Business</label>
                                 <select class="form-control select2" style="width: 100%;" name="h_qualification" ng-model="Client.SelfBusiness">
@@ -153,48 +139,40 @@
                                     <option value="Yes">Yse</option>
                                 </select>
                             </div>
-
                             <div class="form-group">
                                 <label for="">Nominee Name</label>
                                 <input type="text" class="form-control" placeholder="Enter Address 1" ng-model="Client.Nominee.Name">
                             </div>
-
                             <div class="form-group">
                                 <label for="">Nominee Age</label>
                                 <input type="number" class="form-control" placeholder="Enter Address 1" ng-model="Client.Nominee.Age">
                             </div>
-
                             <div class="form-group">
                                 <label for="">Relation With Nominee</label>
                                 <input type="number" class="form-control" placeholder="Enter Address 1" ng-model="Client.Nominee.Relation">
                             </div>
-
                             <div class="form-group">
                                 <label for="">Address : 1</label>
                                 <input type="text" class="form-control" placeholder="Enter Address 1" ng-model="Client.Address1">
                             </div>
-
                             <div class="form-group">
                                 <label for="">Address : 2</label>
                                 <input type="text" class="form-control" placeholder="Enter Address 2" ng-model="Client.Address2">
                             </div>
-
                             <div class="form-group">
                                 <label for="">Customer ID</label>
                                 <input type="text" class="form-control" placeholder="Enter Address 2" ng-model="Client.CustomerID">
                             </div>
-
                             <div class="form-group">
                                 <label for="">Center ID</label>
-                             <select class="form-control select2" style="width: 100%;" name="center_id" ng-model="Client.center_id" required>
+                                <select class="form-control select2" style="width: 100%;" name="center_id" ng-model="Client.center_id" required>
                                     <option selected="selected" value="0">Please select center</option>
                                     <option value="center1">center1</option>
                                     <option value="center2">center2</option>
                                     <option value="center3">center3</option>
-                                                                   
+
                                 </select>
                             </div>
-
                             <div class="form-group">
                                 <label for="selfbusiness">Proof Name</label>
                                 <select class="form-control select2" style="width: 100%;" name="h_qualification" ng-model="Client.ProofName">
@@ -203,26 +181,19 @@
                                     <option value="Other">Others</option>
                                 </select>
                             </div>
-
                             <div class="form-group">
                                 <label for="">Proof ID</label>
                                 <input type="text" class="form-control" placeholder="Enter Address 2" ng-model="Client.ProofID">
                             </div>
-
                         </div><!-- /.box-body -->
-
                     </div><!-- /.box -->
                 </div><!--/.col (right) -->
-
                 <!--place for right Column, I have removed-->
-
                 <div class="col-md-12">
-
                     <div class="box-footer">
-
-                        <input type="submit" ng-click="AddRec()" id="add_emp" name="add_client" class="btn btn-info" value="Submit Form" />
+                        <input ng-model="formAdd.$invalid" type="hidden" class="btn btn-info" value="Submit Form" />
+                        <input type="submit" class="btn btn-info" value="Submit Form" />
                         <button type="reset" class="btn btn-default pull-right">Reset Form</button>
-
                     </div><!-- /.box-footer -->
                 </div>
             </form>
