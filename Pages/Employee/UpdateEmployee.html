@@ -34,16 +34,16 @@
                                 <label for="exampleInputEmail1">Name</label>
                                 <div class="row">
                                     <div class="col-xs-6">
-                                        <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name*" onKeyPress="return letter(event)" maxlength="35" ng-model="Employee.f_name" required />
+                                        <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name*" onKeyPress="return letter(event)" maxlength="35" ng-model="Employee.FirstName" required />
                                     </div>
                                     <div class="col-xs-6">
-                                        <input type="text" class="form-control" placeholder="Last Name*" id="l_name" name="l_name" onKeyPress="return letter(event)" maxlength="35" ng-model="Employee.l_name" required />
+                                        <input type="text" class="form-control" placeholder="Last Name*" id="l_name" name="l_name" onKeyPress="return letter(event)" maxlength="35" ng-model="Employee.LastName" required />
                                     </div>
                                 </div><!-- /.box-body -->
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email ID</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email ID" id="email" name="email" ng-model="Employee.email" />
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email ID" id="email" name="email" ng-model="Employee.Email" />
                             </div>
                             <div class="form-group">
                                 <label>Date of Birth:</label>
@@ -51,7 +51,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="date" class="form-control" name="dob" data-inputmask="'alias': 'dd/mm/yyyy'" value="1990-01-01" ng-model="Employee.dob" data-mask>
+                                    <input type="date" class="form-control" name="dob" data-inputmask="'alias': 'dd/mm/yyyy'" value="1990-01-01" ng-model="Employee.DOB" data-mask>
                                 </div><!-- /.input group -->
                             </div>
                             <div class="form-group">
@@ -59,56 +59,53 @@
                                 <div class="form-control">
                                     <div class="col-xs-3">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="gender" value="male" class="minimal-red" ng-model="Employee.gender" checked>
+                                        <input type="radio" name="gender" value="Male" class="minimal-red" ng-model="Employee.Sex" checked>
                                         Male
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </div>
                                     <div class="col-xs-4">
-                                        <input type="radio" name="gender" value="female" class="minimal-red" ng-model="Employee.gender">
+                                        <input type="radio" name="gender" value="Female" class="minimal-red" ng-model="Employee.Sex">
                                         Female
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Marital status</label>
-                                <select class="form-control select2" style="width: 100%;" name="m_status" ng-model="Employee.m_status">
-                                    <option selected="selected" value="0">Please select one</option>
-                                    <option value="unmarried">Unmarried </option>
-                                    <option value="married">Married</option>
+                                <select class="form-control select2" style="width: 100%;" name="m_status" ng-model="Employee.MaritalStatus">
+                                    <option value="Unmarried">Unmarried </option>
+                                    <option value="Married">Married</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="qualification">Highest Qualification </label>
-                                <select class="form-control select2" style="width: 100%;" name="h_qualification" ng-model="Employee.h_qualification">
-                                    <option selected="selected" value="0">Please select Highest Qualification</option>
+                                <select class="form-control select2" style="width: 100%;" name="h_qualification" ng-model="Employee.HighestQualification">
                                     <option value="Post Graduate">Post Graduate </option>
                                     <option value="Graduate">Graduate</option>
                                     <option value="Intermediate">Intermediate </option>
                                     <option value="High School">High School</option>
                                     <option value="8th">8th</option>
-
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label for="">Father Name</label>
-                                <input type="text" class="form-control" name="father_name" id="father_name" placeholder="Father Name*" ng-model="Employee.father_name" required>
+                                <input type="text" class="form-control" name="father_name" id="father_name" placeholder="Father Name*" ng-model="Employee.FatherName" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Address : 1</label>
-                                <input type="text" class="form-control" name="add1" id="add1" placeholder="Enter Address 1" ng-model="Employee.add1" required>
+                                <input type="text" class="form-control" name="add1" id="add1" placeholder="Enter Address 1" ng-model="Employee.Address1" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Address : 2</label>
-                                <input type="text" class="form-control" name="add2" id="add2" placeholder="Enter Address 2" ng-model="Employee.add2" required>
+                                <input type="text" class="form-control" name="add2" id="add2" placeholder="Enter Address 2" ng-model="Employee.Address2" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Pin Code</label>
-                                <input type="text" class="form-control" name="pincode" id="pincode" placeholder="Enter Pin code" ng-model="Employee.pincode" required>
+                                <input type="text" class="form-control" name="pincode" id="pincode" placeholder="Enter Pin code" ng-model="Employee.PIN" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Contact No.</label>
-                                <input type="text" class="form-control" name="contact" id="contact" placeholder="Enter Contact No." maxlength="10" ng-model="Employee.contact" required />
+                                <input type="text" class="form-control" name="contact" id="contact" placeholder="Enter Contact No." maxlength="10" ng-model="Employee.Contact" required />
                             </div>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
@@ -121,49 +118,48 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nominee Name</label>
-                                <input type="text" class="form-control" name="nominee_name" id="nominee_name" placeholder="Nominee Name" ng-model="Employee.nominee_name" />
+                                <input type="text" class="form-control" name="nominee_name" id="nominee_name" placeholder="Nominee Name" ng-model="Employee.NomineeName" />
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nominee Age</label>
-                                <input type="text" class="form-control" name="nominee_age" id="nominee_age" placeholder="Nominee Age" ng-model="Employee.nominee_age" />
+                                <input type="text" class="form-control" name="nominee_age" id="nominee_age" placeholder="Nominee Age" ng-model="Employee.NomineeAge" />
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nominee Relation</label>
-                                <input type="text" class="form-control" name="nominee_rel" id="nominee_rel" placeholder="Relation to Nominee" ng-model="Employee.nominee_rel" />
+                                <input type="text" class="form-control" name="nominee_rel" id="nominee_rel" placeholder="Relation to Nominee" ng-model="Employee.NomineeRelation" />
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Bank A/C No.</label>
-                                <input type="text" class="form-control" name="bank_acc" id="bank_acc" placeholder="Bank A/C No." ng-model="Employee.bank_acc" />
+                                <input type="text" class="form-control" name="bank_acc" id="bank_acc" placeholder="Bank A/C No." ng-model="Employee.BankAccountNumber" />
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Bank Name</label>
-                                <input type="text" class="form-control" name="bank_name" id="bank_name" placeholder="Bank Name" ng-model="Employee.bank_name" />
+                                <input type="text" class="form-control" name="bank_name" id="bank_name" placeholder="Bank Name" ng-model="Employee.BankName" />
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Bank Branch</label>
-                                <input type="text" class="form-control" name="bank_branch" id="bank_branch" placeholder="Bank Branch" ng-model="Employee.bank_branch" />
+                                <input type="text" class="form-control" name="bank_branch" id="bank_branch" placeholder="Bank Branch" ng-model="Employee.BankBranchName" />
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Bank IFSC Code</label>
-                                <input type="text" class="form-control" name="bank_ifsc" id="bank_ifsc" placeholder="Bank's IFSC Code" ng-model="Employee.bank_ifsc" />
+                                <input type="text" class="form-control" name="bank_ifsc" id="bank_ifsc" placeholder="Bank's IFSC Code" ng-model="Employee.IFSC" />
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">PAN card No.</label>
-                                <input type="text" class="form-control" name="pan_card" id="pan_card" placeholder="PAN Card Number" ng-model="Employee.pan_card" />
+                                <input type="text" class="form-control" name="pan_card" id="pan_card" placeholder="PAN Card Number" ng-model="Employee.PAN" />
                             </div>
                             <div class="form-group">
                                 <label>Select Identity Proof</label>
-                                <select class="form-control select2" style="width: 100%;" name="id_proof" ng-model="Employee.id_proof" required>
-                                    <option selected="selected" value="0">Please select one</option>
-                                    <option value="Voter ID Card">Voter ID Card </option>
-                                    <option value="Aadhar Card">Aadhar Card</option>
-                                    <option value="Ration Card">Ration Card</option>
-                                    <option value="Driving Licence">Driving Licence</option>
+                                <select class="form-control select2" style="width: 100%;" name="id_proof" ng-model="Employee.IdProof" required>
+                                    <option value="VoterIdCard">Voter ID Card </option>
+                                    <option value="AadharCard">Aadhar Card</option>
+                                    <option value="RationCard">Ration Card</option>
+                                    <option value="DL">Driving Licence</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Identity Proof Number</label>
-                                <input type="text" class="form-control" name="id_proof_number" id="id_proof_number" placeholder="ID Proof No" ng-model="Employee.id_proof_number">
+                                <input type="text" class="form-control" name="id_proof_number" id="id_proof_number" placeholder="ID Proof No" ng-model="Employee.IdProofNumber">
                             </div>
 
                             <div class="form-group">
@@ -172,24 +168,23 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="date" class="form-control" name="join_date" data-inputmask="'alias': 'dd/mm/yyyy'" value="10-10-2010" ng-model="Employee.join_date" data-mask>
+                                    <input type="date" class="form-control" name="join_date" data-inputmask="'alias': 'dd/mm/yyyy'" value="10-10-2010" ng-model="Employee.JoiningDate" data-mask>
                                 </div><!-- /.input group -->
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Designation</label>
-                                <select class="form-control select2" style="width: 100%;" name="join_post" id="join_post" ng-model="Employee.join_post" required>
-                                    <option selected="selected" value="0">Select Designation</option>
+                                <select class="form-control select2" style="width: 100%;" name="join_post" id="join_post" ng-model="Employee.Designation" required>
                                     <option value="HeadAdmin">Head Office Manager</option>
                                     <option value="BranchAdmin">Branch Office Manager</option>
                                     <option value="CenterAdmin">Center Manager</option>
-                                    <option value="HR">HR Manager</option>
-                                    <option value="IT">IT Manager</option>
+                                    <option value="HRManager">HR Manager</option>
+                                    <option value="ITManager">IT Manager</option>
                                     <option value="Clerk">Clerk</option>
                                 </select>
-                            </div>
-                            <div class="form-group">
+                            </div><div class="form-group">
                                 <label for="exampleInputEmail1">Upload Photo</label>
-                                <input type="file" class="form-control" name="photo" id="photo" />
+                                <input type="file" class="form-control" onchange="angular.element(this).scope().GetFile(this.files[0])" />
+                                <img id="base64" width="25%" />
                             </div>
                         </div><!-- /.box-body -->
 

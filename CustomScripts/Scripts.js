@@ -98,10 +98,16 @@ financeApp.controller('AddNewEmployeeController', function ($scope, $firebaseObj
         if (!formAdd.$invalid) {
             IdRef.once("value", function (snapshot) {
                 $scope.Employee.ID = snapshot.val();
+                // Pushing Form Data
                 var key = rootRef.child('Employee').child(snapshot.val());
                 key.set($scope.Employee);
+
+                // Pushing Encoded Image
+                var Imgkey = rootRef.child('EmployeePics').child(snapshot.val());
+                if ($scope.EmployeePic != null)
+                    Imgkey.set($scope.EmployeePic);
+
                 IdRef.set(parseInt($scope.Employee.ID) + 1);
-                $scope.Employee = null;
                 $timeout(function () {
                     $location.path('/UpdateEmployee').search({ ID: snapshot.val() });
                 }, 0);
@@ -110,14 +116,37 @@ financeApp.controller('AddNewEmployeeController', function ($scope, $firebaseObj
             });
         }
     }
+    $scope.GetFile = function (f) {
+            var reader = new FileReader();
+            // Closure to capture the file information.
+            reader.onload = (function (theFile) {
+                return function (e) {
+                    var binaryData = e.target.result;
+                    //Converting Binary Data to base 64
+                    $scope.EmployeePic = window.btoa(binaryData);
+                    //showing file converted to base64
+                    document.getElementById('base64').src = "data:image/png;base64, " + $scope.EmployeePic;
+                };
+            })(f);
+            // Read in the image file as a data URL.
+            reader.readAsBinaryString(f);
+        
+    }
 });
 
 financeApp.controller('UpdateEmployeeController', function ($scope, $firebaseObject, $location) {
     var rootRef = new Firebase(ROOTREF);
     var recordRef = rootRef.child("Employee/" + $location.search().ID);
     recordRef.on("value", function (data) {
-        console.log(data.val());
         $scope.Employee = data.val();
+    }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+    });
+
+    var imageRef = rootRef.child("EmployeePics/" + $location.search().ID);
+    imageRef.on("value", function (data) {
+        $scope.EmployeePic = data.val();
+        document.getElementById('base64').src = "data:image/png;base64, " + $scope.EmployeePic;
     }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
     });
