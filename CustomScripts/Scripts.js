@@ -94,6 +94,14 @@ financeApp.controller('mainController', function ($scope, $firebaseObject) {
 financeApp.controller('AddNewEmployeeController', function ($scope, $firebaseObject, $location, $timeout) {
     var rootRef = new Firebase(ROOTREF);
     var IdRef = rootRef.child("IDs/Employee");
+    var CenterDdlRef = rootRef.child("Center");
+
+    CenterDdlRef.on("value", function (data) {
+        $scope.Centers = data.val();
+    }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+    });
+
     $scope.AddRec = function () {
         if (!formAdd.$invalid) {
             IdRef.once("value", function (snapshot) {
@@ -116,19 +124,16 @@ financeApp.controller('AddNewEmployeeController', function ($scope, $firebaseObj
             });
         }
     }
+
     $scope.GetFile = function (f) {
             var reader = new FileReader();
-            // Closure to capture the file information.
             reader.onload = (function (theFile) {
                 return function (e) {
                     var binaryData = e.target.result;
-                    //Converting Binary Data to base 64
                     $scope.EmployeePic = window.btoa(binaryData);
-                    //showing file converted to base64
                     document.getElementById('base64').src = "data:image/png;base64, " + $scope.EmployeePic;
                 };
             })(f);
-            // Read in the image file as a data URL.
             reader.readAsBinaryString(f);
         
     }

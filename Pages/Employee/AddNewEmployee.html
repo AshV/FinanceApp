@@ -20,7 +20,7 @@
                     <p>Successfully Submitted</p>
                 </div><!-- /.box-footer -->
             </div>
-        
+
             <form role="form" name="formAdd" ng-submit="AddRec()">
                 <div class="col-md-12">
                     <!-- Horizontal Form -->
@@ -180,6 +180,12 @@
                                     <option value="HRManager">HR Manager</option>
                                     <option value="ITManager">IT Manager</option>
                                     <option value="Clerk">Clerk</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Center</label>
+                                <select class="form-control select2" style="width: 100%;" ng-model="Employee.CenterId">
+                                    <option ng-selected="1001" ng-repeat="Center in Centers" value="{{Center.ID}}">{{Center.Code}}</option>
                                 </select>
                             </div>
                             <div class="form-group">
