@@ -181,7 +181,15 @@
                                     <option value="ITManager">IT Manager</option>
                                     <option value="Clerk">Clerk</option>
                                 </select>
-                            </div><div class="form-group">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Center</label>
+                                <select class="form-control select2" style="width: 100%;" ng-selected="Employee.CenterId" ng-model="Employee.CenterId">
+                                    <option ng-repeat="Center in Centers" value="{{Center.ID}}">{{Center.Code}}</option>
+                                </select>
+                            </div>
+                        <div class="form-group">
                                 <label for="exampleInputEmail1">Upload Photo</label>
                                 <input type="file" class="form-control" onchange="angular.element(this).scope().GetFile(this.files[0])" />
                                 <img id="base64" width="25%" />

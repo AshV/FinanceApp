@@ -34,20 +34,17 @@
                             <div class="form-group">
                                 <label for="InputEmail1">Name</label>
                                 <div class="row">
-                                    <div class="col-xs-4">
-                                        <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name*" onKeyPress="return letter(event)" maxlength="35" ng-model="Client.FName" required />
+                                    <div class="col-xs-6">
+                                        <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name*" onKeyPress="return letter(event)" maxlength="35" ng-model="Client.FName" />
                                     </div>
-                                    <div class="col-xs-4">
-                                        <input type="text" class="form-control" placeholder="Middle Name*" id="l_name" name="m_name" onKeyPress="return letter(event)" maxlength="35" ng-model="Client.MName" />
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <input type="text" class="form-control" placeholder="Last Name*" id="l_name" name="l_name" onKeyPress="return letter(event)" maxlength="35" ng-model="Client.LName" required />
+                                    <div class="col-xs-6">
+                                        <input type="text" class="form-control" placeholder="Last Name*" id="l_name" name="l_name" onKeyPress="return letter(event)" maxlength="35" ng-model="Client.LName" />
                                     </div>
                                 </div><!-- /.box-body -->
                             </div>
                             <div class="form-group">
                                 <label for="">Father Name</label>
-                                <input type="text" class="form-control" name="father_name" id="father_name" placeholder="Father Name*" ng-model="Client.FatherName" required />
+                                <input type="text" class="form-control" name="father_name" id="father_name" placeholder="Father Name*" ng-model="Client.FatherName" />
                             </div>
                             <div class="form-group">
                                 <label for="InputEmail1">Email ID</label>
@@ -55,7 +52,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="InputContact">Contact Number</label>
-                                <input type="number" class="form-control" id="InputContact" placeholder="Contact Number" id="email" name="email" ng-model="Client.Contact" required />
+                                <input type="number" class="form-control" id="InputContact" placeholder="Contact Number" id="email" name="email" ng-model="Client.Contact" />
                             </div>
                             <div class="form-group">
                                 <label>Date of Birth</label>
@@ -63,7 +60,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="date" class="form-control" name="dob" data-inputmask="'alias': 'dd/mm/yyyy'" value="1990-01-01" ng-model="Client.DOB" data-mask required>
+                                    <input type="date" class="form-control" name="dob" data-inputmask="'alias': 'dd/mm/yyyy'" value="1990-01-01" ng-model="Client.DOB" data-mask/>
                                 </div><!-- /.input group -->
                             </div>
                             <div class="form-group">
@@ -91,7 +88,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Marital status</label>
-                                <select class="form-control select2" style="width: 100%;" name="m_status" ng-model="Client.MaritalStatus" required />
+                                <select class="form-control select2" style="width: 100%;" name="m_status" ng-model="Client.MaritalStatus" />
                                 <option selected="selected" value="0">Please select one</option>
                                 <option value="unmarried">Unmarried </option>
                                 <option value="married">Married</option>
@@ -101,7 +98,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="qualification">Highest Qualification </label>
-                                <select class="form-control select2" style="width: 100%;" name="h_qualification" ng-model="Client.Qualification" required>
+                                <select class="form-control select2" style="width: 100%;" name="h_qualification" ng-model="Client.Qualification"/>
                                     <option selected="selected" value="0">Please select Highest Qualification</option>
                                     <option value="Post Graduate">Post Graduate </option>
                                     <option value="Graduate">Graduate</option>
@@ -113,7 +110,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Community</label>
-                                <select class="form-control select2" style="width: 100%;" name="community" ng-model="Client.community" required>
+                                <select class="form-control select2" style="width: 100%;" name="community" ng-model="Client.Community" />
                                     <option selected="selected" value="0">Please select Community Qualification</option>
                                     <option value="hindu">Hindu </option>
                                     <option value="muslim">Muslim</option>
@@ -124,7 +121,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Occupation</label>
-                                <select class="form-control select2" style="width: 100%;" name="h_qualification" ng-model="Client.Qualification" required>
+                                <select class="form-control select2" style="width: 100%;" name="h_qualification" ng-model="Client.Qualification" />
                                     <option selected="selected" value="0">Please select Occupation</option>
                                     <option value="Gemployee">Govt.Employee</option>
                                     <option value="Semployee">Self Employed</option>
@@ -159,18 +156,20 @@
                                 <label for="">Address : 2</label>
                                 <input type="text" class="form-control" placeholder="Enter Address 2" ng-model="Client.Address2">
                             </div>
-                            <div class="form-group">
+                            <!--<div class="form-group">
                                 <label for="">Customer ID</label>
                                 <input type="text" class="form-control" placeholder="Enter Address 2" ng-model="Client.CustomerID">
+                            </div>-->
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Center</label>
+                                <select class="form-control select2" style="width: 100%;" ng-model="Client.CenterId">
+                                    <option ng-repeat="Center in Centers" value="{{Center.ID}}">{{Center.Code}}</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="">Center ID</label>
-                                <select class="form-control select2" style="width: 100%;" name="center_id" ng-model="Client.center_id" required>
-                                    <option selected="selected" value="0">Please select center</option>
-                                    <option value="center1">center1</option>
-                                    <option value="center2">center2</option>
-                                    <option value="center3">center3</option>
-
+                                <label for="exampleInputEmail1">Staff</label>
+                                <select class="form-control select2" style="width: 100%;" ng-model="Client.EmployeeId">
+                                    <option ng-repeat="Employee in Employees" value="{{Employee.ID}}">{{ Employee.FirstName + " "+Employee.LastName }}</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -184,6 +183,11 @@
                             <div class="form-group">
                                 <label for="">Proof ID</label>
                                 <input type="text" class="form-control" placeholder="Enter Address 2" ng-model="Client.ProofID">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Upload Photo</label>
+                                <input type="file" class="form-control" onchange="angular.element(this).scope().GetFile(this.files[0])" />
+                                <img id="base64" src="./Images/dummy-profile.jpg" width="25%" />
                             </div>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->

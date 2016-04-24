@@ -15,7 +15,6 @@
     <section class="content">
         <div class="row">
             <!-- left column -->
-
             <div class="col-md-12">
                 <div class="callout callout-success">
                     <p>Successfully Submitted</p>
@@ -35,21 +34,18 @@
                             <div class="form-group">
                                 <label for="InputEmail1">Name</label>
                                 <div class="row">
-                                    <div class="col-xs-4">
-                                        <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name*" onKeyPress="return letter(event)" maxlength="35" ng-model="Client.FName" required/>
+                                    <div class="col-xs-6">
+                                        <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name*" onKeyPress="return letter(event)" maxlength="35" ng-model="Client.FName" required />
                                     </div>
-                                    <div class="col-xs-4">
-                                        <input type="text" class="form-control" placeholder="Middle Name*" id="l_name" name="m_name" onKeyPress="return letter(event)" maxlength="35" ng-model="Client.MName" />
-                                    </div>
-									 <div class="col-xs-4">
-                                        <input type="text" class="form-control" placeholder="Last Name*" id="l_name" name="l_name" onKeyPress="return letter(event)" maxlength="35" ng-model="Client.LName" required/>
+                                    <div class="col-xs-6">
+                                        <input type="text" class="form-control" placeholder="Last Name*" id="l_name" name="l_name" onKeyPress="return letter(event)" maxlength="35" ng-model="Client.LName" required />
                                     </div>
                                 </div><!-- /.box-body -->
                             </div>
 
                             <div class="form-group">
                                 <label for="">Father Name</label>
-                                <input type="text" class="form-control" name="father_name" id="father_name" placeholder="Father Name*" ng-model="Client.FatherName" required/>
+                                <input type="text" class="form-control" name="father_name" id="father_name" placeholder="Father Name*" ng-model="Client.FatherName" required />
                             </div>
 
                             <div class="form-group">
@@ -59,7 +55,7 @@
 
                             <div class="form-group">
                                 <label for="InputContact">Contact Number</label>
-                                <input type="number" class="form-control" id="InputContact" placeholder="Contact Number" id="email" name="email" ng-model="Client.Contact" required/>
+                                <input type="number" class="form-control" id="InputContact" placeholder="Contact Number" id="email" name="email" ng-model="Client.Contact" required />
                             </div>
 
                             <div class="form-group">
@@ -100,12 +96,12 @@
 
                             <div class="form-group">
                                 <label>Marital status</label>
-                                <select class="form-control select2" style="width: 100%;" name="m_status" ng-model="Client.MaritalStatus" required/>
-                                    <option selected="selected" value="0">Please select one</option>
-                                    <option value="unmarried">Unmarried </option>
-                                    <option value="married">Married</option>
-                                    <option value="divorced">Divorced </option>
-                                    <option value="widow">Widow </option>
+                                <select class="form-control select2" style="width: 100%;" name="m_status" ng-model="Client.MaritalStatus" required />
+                                <option selected="selected" value="0">Please select one</option>
+                                <option value="unmarried">Unmarried </option>
+                                <option value="married">Married</option>
+                                <option value="divorced">Divorced </option>
+                                <option value="widow">Widow </option>
                                 </select>
                             </div>
 
@@ -124,7 +120,7 @@
 
                             <div class="form-group">
                                 <label for="">Community</label>
-                               <select class="form-control select2" style="width: 100%;" name="community" ng-model="Client.community" required>
+                                <select class="form-control select2" style="width: 100%;" name="community" ng-model="Client.Community" required>
                                     <option selected="selected" value="0">Please select Community Qualification</option>
                                     <option value="hindu">Hindu </option>
                                     <option value="muslim">Muslim</option>
@@ -182,18 +178,18 @@
                                 <label for="">Customer ID</label>
                                 <input type="text" class="form-control" placeholder="Enter Address 2" ng-model="Client.CustomerID">
                             </div>
-
                             <div class="form-group">
-                                <label for="">Center ID</label>
-                             <select class="form-control select2" style="width: 100%;" name="center_id" ng-model="Client.center_id" required>
-                                    <option selected="selected" value="0">Please select center</option>
-                                    <option value="center1">center1</option>
-                                    <option value="center2">center2</option>
-                                    <option value="center3">center3</option>
-
+                                <label for="exampleInputEmail1">Center</label>
+                                <select class="form-control select2" style="width: 100%;" ng-selected="Client.CenterId" ng-model="Client.CenterId">
+                                    <option ng-repeat="Center in Centers" value="{{Center.ID}}">{{Center.Code}}</option>
                                 </select>
                             </div>
-
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Staff</label>
+                                <select class="form-control select2" style="width: 100%;" ng-selected="Client.EmployeeId" ng-model="Client.EmployeeId">
+                                    <option ng-repeat="Employee in Employees" value="{{Employee.ID}}">{{ Employee.FirstName + " "+Employee.LastName }}</option>
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <label for="selfbusiness">Proof Name</label>
                                 <select class="form-control select2" style="width: 100%;" name="h_qualification" ng-model="Client.ProofName">
@@ -207,12 +203,16 @@
                                 <label for="">Proof ID</label>
                                 <input type="text" class="form-control" placeholder="Enter Address 2" ng-model="Client.ProofID">
                             </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Upload Photo</label>
+                                <input type="file" class="form-control" onchange="angular.element(this).scope().GetFile(this.files[0])" />
+                                <img id="base64" width="25%" />
+                            </div>
 
                         </div><!-- /.box-body -->
 
                     </div><!-- /.box -->
                 </div><!--/.col (right) -->
-
                 <!--place for right Column, I have removed-->
 
                 <div class="col-md-12">
@@ -223,9 +223,7 @@
                     </div><!-- /.box-footer -->
                 </div>
             </form>
-
         </div>   <!-- /.row -->
     </section><!-- /.content -->
     <!-- Main content -->
-
 </div><!-- /.content-wrapper -->
