@@ -93,6 +93,11 @@ financeApp.run(function ($rootScope) {
 
 financeApp.controller('mainController', function ($scope, $firebaseObject) {
     var rootRef = new Firebase(ROOTREF);
+    $scope.$on('$viewContentLoaded', function () {
+popup('popUpDiv');
+     //   alert('s' + ' is loaded !!');
+        a();
+    });
 });
 
 financeApp.controller('AddNewEmployeeController', function ($scope, $firebaseObject, $location, $timeout) {
@@ -443,3 +448,6 @@ financeApp.controller('UpdateLoanProposalController', function ($scope, $firebas
     }
 });
 
+function a() {
+alert("External");
+}

@@ -1,4 +1,17 @@
-      <!-- Content Wrapper. Contains page content -->
+<div id="blanket" style="display:none;"></div>
+<div id="popUpDiv" style="display:none;">
+    <div id="fountainG">
+        <div id="fountainG_1" class="fountainG"></div>
+        <div id="fountainG_2" class="fountainG"></div>
+        <div id="fountainG_3" class="fountainG"></div>
+        <div id="fountainG_4" class="fountainG"></div>
+        <div id="fountainG_5" class="fountainG"></div>
+        <div id="fountainG_6" class="fountainG"></div>
+        <div id="fountainG_7" class="fountainG"></div>
+        <div id="fountainG_8" class="fountainG"></div>
+    </div>
+</div>
+<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -189,7 +202,7 @@
                                     <option ng-repeat="Center in Centers" value="{{Center.ID}}">{{Center.Code}}</option>
                                 </select>
                             </div>
-                        <div class="form-group">
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">Upload Photo</label>
                                 <input type="file" class="form-control" onchange="angular.element(this).scope().GetFile(this.files[0])" />
                                 <img id="base64" width="25%" />
