@@ -89,14 +89,17 @@ financeApp.run(function ($rootScope) {
     }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
     });
+    ref.child("Center").on("value", function (data) {
+        $rootScope.Centers = data.val();
+    }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+    });
 });
 
 financeApp.controller('mainController', function ($scope, $firebaseObject) {
     var rootRef = new Firebase(ROOTREF);
     $scope.$on('$viewContentLoaded', function () {
-popup('popUpDiv');
-     //   alert('s' + ' is loaded !!');
-        a();
+
     });
 });
 
@@ -105,11 +108,11 @@ financeApp.controller('AddNewEmployeeController', function ($scope, $firebaseObj
     var IdRef = rootRef.child("IDs/Employee");
     var CenterDdlRef = rootRef.child("Center");
 
-    CenterDdlRef.on("value", function (data) {
-        $scope.Centers = data.val();
-    }, function (errorObject) {
-        console.log("The read failed: " + errorObject.code);
-    });
+    //CenterDdlRef.on("value", function (data) {
+    //   $scope.Centers = data.val();
+    //}, function (errorObject) {
+    //    console.log("The read failed: " + errorObject.code);
+    //});
 
     $scope.AddRec = function () {
         if (!formAdd.$invalid) {
